@@ -3,8 +3,8 @@ import './App.css';
 import ping from './img/ping.jpg';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
-import CantidadPokemon from './components/Cantidad/Pokemon';
-import CompraPokemon from './components/Compra/Pokemon';
+import CantidadPokemon from './components/CantidadPokemon';
+import CompraPokemon from './components/CompraPokemon';
 
 import { Provider } from 'react-redux'
 import store from './redux/store';
