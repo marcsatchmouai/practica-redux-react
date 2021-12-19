@@ -1,4 +1,4 @@
-import { Axios } from "axios";
+import axios from "axios";
 
 export const FETCH_PORKEMON_REQUEST = 'FETCH_PORKEMON_REQUEST';
 export const FETCH_PORKEMON_SUCCESS = 'FETCH_PORKEMON_SUCCESS';
@@ -27,13 +27,13 @@ export const fetchPokemontFailure = (error) => {
 const fetchPokemon = (valor) => {
     return(dispatch) => {
         dispatch(fetchPokemontRequest());
-        Axios.length(`https://pokeapi.co/api/v2/pokemon/$(valor)`)
-        .then(response => {
-            dispatch(fetchPokemontSuccess([response.data]));
-        })
-        .catch(error => {
-            dispatch(fetchPokemontFailure('No se encontro el pokemon'));
-        });
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${valor}`)
+            .then(response => {
+                dispatch(fetchPokemontSuccess([response.data]));
+            })
+            .catch(error => {
+                dispatch(fetchPokemontFailure('No se encontro el pokemon'));
+            });
     }
 }
 
